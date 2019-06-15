@@ -5,6 +5,7 @@ import CartColumns from "./CartColumns";
 import EmptyCart from "./EmptyCart";
 import CartList from "./CartList";
 import CartTotal from "./CartTotal";
+import PayPalButton from "./PayPalButton";
 export default class Cart extends Component {
   render() {
     return (
@@ -18,7 +19,7 @@ export default class Cart extends Component {
                   <Title name="Your " title="cart" />
                   <CartColumns />
                   <CartList value={value} />
-                  <CartTotal value={value} />
+                  <CartTotal value={value} history={this.props.history} />
                 </React.Fragment>
               );
             } else {

@@ -1,5 +1,6 @@
 import React from "react";
 import { ButtonContainer } from "../Button";
+import PayPalButton from "./PayPalButton";
 
 export default function CartItem({ product, value }) {
   const { id, title, img, price, total, count } = product;
