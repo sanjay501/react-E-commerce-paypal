@@ -50,7 +50,7 @@ export default class Details extends Component {
                     </p>
                     <p className="lead text-muted">{info}</p>
                     <div className="d-flex">
-                      <Link to="/products">
+                      <Link to="/">
                         <ButtonContainer>back to products</ButtonContainer>
                       </Link>
 

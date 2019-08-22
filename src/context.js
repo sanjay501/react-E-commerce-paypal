@@ -13,11 +13,13 @@ class ProductProvider extends Component {
     modalProduct: detailProduct,
     cartSubTotal: 0,
     cartTax: 0,
-    cartTotal: 0
+    cartTotal: 0,
+    cartCount: 0
   };
   componentDidMount() {
     this.setProducts();
   }
+
   setProducts = () => {
     let tempproducts = [];
     storeProducts.forEach(item => {
@@ -27,6 +29,33 @@ class ProductProvider extends Component {
     this.setState(() => {
       return { products: tempproducts };
     });
+  };
+  setCartCount = () => {
+    let count = 0;
+    this.state.cart.forEach(item => {
+      count = count + item.count;
+    });
+    this.setState(() => {
+      return { cartCount: count };
+    });
+  };
+
+  resetProducts = (storelist, tag) => {
+    let reproducts = [];
+    storelist.forEach(item => {
+      let newitem = { ...item };
+      console.log(newitem);
+      reproducts.push(newitem);
+    });
+    console.log("resetproducts", reproducts);
+    this.setState(
+      () => {
+        return { products: reproducts };
+      },
+      () => {
+        this.filter(tag);
+      }
+    );
   };
 
   getItem = id => {
@@ -40,6 +69,50 @@ class ProductProvider extends Component {
     this.setState(() => {
       return { detailProduct: product };
     });
+  };
+
+  search = value => {
+    console.log("hello from search method", { value });
+
+    if (value == "") {
+      this.setProducts();
+    } else {
+      let tempProduct = [...this.state.products];
+      let filteredcart = [];
+      var regex = new RegExp(value);
+
+      tempProduct.map(item => {
+        if (item.title.match(regex)) {
+          filteredcart.push(item);
+        }
+        console.log(filteredcart, regex);
+      });
+      this.setState(() => {
+        return {
+          products: filteredcart
+        };
+      });
+    }
+  };
+
+  filter = tag => {
+    let tempProduct = [...this.state.products];
+    let filteredcart = [];
+    tempProduct.map(item => {
+      if (item.company == tag) {
+        filteredcart.push(item);
+      }
+    });
+    this.setState(
+      () => {
+        return {
+          products: filteredcart
+        };
+      },
+      () => {
+        console.log("filter ", this.state.products);
+      }
+    );
   };
 
   addToCart = id => {
@@ -61,6 +134,7 @@ class ProductProvider extends Component {
       },
       () => {
         this.getTotals();
+        this.setCartCount();
       }
     );
   };
@@ -98,6 +172,7 @@ class ProductProvider extends Component {
       },
       () => {
         this.getTotals();
+        this.setCartCount();
       }
     );
   };
@@ -121,6 +196,7 @@ class ProductProvider extends Component {
         },
         () => {
           this.getTotals();
+          this.setCartCount();
         }
       );
     }
@@ -141,6 +217,7 @@ class ProductProvider extends Component {
       },
       () => {
         this.getTotals();
+        this.setCartCount();
       }
     );
   };
@@ -154,6 +231,7 @@ class ProductProvider extends Component {
       },
       () => {
         this.setProducts();
+        this.setCartCount();
       }
     );
   };
@@ -188,7 +266,11 @@ class ProductProvider extends Component {
           increment: this.increment,
           decrement: this.decrement,
           removeItem: this.removeItem,
-          clearCart: this.clearCart
+          clearCart: this.clearCart,
+          search: this.search,
+          filter: this.filter,
+          resetProducts: this.resetProducts,
+          setCartCount: this.setCartCount
         }}
       >
         {this.props.children}
