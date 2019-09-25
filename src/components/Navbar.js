@@ -13,6 +13,7 @@ export default class Navbar extends Component {
   }
   handleChange(event) {
     this.setState({ value: event.target.value });
+    console.log(this.state.value);
   }
 
   render() {
@@ -41,22 +42,22 @@ export default class Navbar extends Component {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/" className="nav-link">
+                    <Link to="/aboutus" className="nav-link">
                       About Us
                     </Link>
                   </li>
                   <li className="nav-item ">
-                    <Link to="/" className="nav-link">
+                    <Link to="/store" className="nav-link">
                       Stores
                     </Link>
                   </li>
                   <li className="nav-item ">
-                    <Link to="/" className="nav-link">
+                    <Link to="/exchange" className="nav-link">
                       Sell/Exchange
                     </Link>
                   </li>
                   <li className="nav-item ">
-                    <Link to="/" className="nav-link">
+                    <Link to="/contact" className="nav-link">
                       Contact
                     </Link>
                   </li>
@@ -83,7 +84,8 @@ export default class Navbar extends Component {
                     <i className="fas fa-cart-plus" />
                   </span>
                   My Cart
-                  <CartCounter>{value.cartCount}</CartCounter>
+
+                  <span className="cartcounter">{value.cartCount}</span>
                 </ButtonContainer>
               </Link>
             </React.Fragment>
@@ -105,13 +107,39 @@ const NavWrapper = styled.nav`
     width: 220px;
     height: 80px;
   }
+  @include (max-width: 768px)  {
+    padding-right: .5rem;
+    padding-left: .5rem;
+
+    .navbar-nav-scroll {
+      max-width: 100%;
+      height: 2.5rem;
+      margin-top: .25rem;
+      overflow: hidden;
+
+      .navbar-nav {
+        padding-bottom: 2rem;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+
+    .cartcounter{
+      position: absolute !important;
+      top: -15px !important;
+      width: 35px !important;
+      right: -23px !important;
+      border-radius: 50% !important;
+      background: white !important;
+      color: var(--mainBlue) !important;
+
+    }
+  }
+
+
 `;
+
 const CartCounter = styled.span`
-  position: absolute;
-  top: -15px;
-  width: 35px;
-  right: -23px;
-  border-radius: 50%;
-  background: white;
-  color: var(--mainBlue);
+  
 `;

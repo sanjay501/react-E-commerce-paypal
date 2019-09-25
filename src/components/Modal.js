@@ -57,6 +57,7 @@ export default class Modal extends Component {
 }
 const ModalContainer = styled.div`
   position: fixed;
+  z-index: 15;
   top: 0;
   right: 0;
   left: 0;

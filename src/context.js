@@ -41,6 +41,7 @@ class ProductProvider extends Component {
   };
 
   resetProducts = (storelist, tag) => {
+
     let reproducts = [];
     storelist.forEach(item => {
       let newitem = { ...item };
@@ -56,6 +57,9 @@ class ProductProvider extends Component {
         this.filter(tag);
       }
     );
+
+
+
   };
 
   getItem = id => {
@@ -96,23 +100,42 @@ class ProductProvider extends Component {
   };
 
   filter = tag => {
-    let tempProduct = [...this.state.products];
-    let filteredcart = [];
-    tempProduct.map(item => {
-      if (item.company == tag) {
+    if (tag == "reset") {
+      let tempProduct = [...this.state.products];
+      let filteredcart = [];
+      tempProduct.map(item => {
         filteredcart.push(item);
-      }
-    });
-    this.setState(
-      () => {
-        return {
-          products: filteredcart
-        };
-      },
-      () => {
-        console.log("filter ", this.state.products);
-      }
-    );
+      });
+      this.setState(
+        () => {
+          return {
+            products: filteredcart
+          };
+        },
+        () => {
+          console.log("filter ", this.state.products);
+        }
+      );
+    } else {
+      let tempProduct = [...this.state.products];
+      let filteredcart = [];
+      tempProduct.map(item => {
+        if (item.company == tag) {
+          filteredcart.push(item);
+        }
+      });
+      this.setState(
+        () => {
+          return {
+            products: filteredcart
+          };
+        },
+        () => {
+          console.log("filter ", this.state.products);
+        }
+      );
+    }
+
   };
 
   addToCart = id => {
@@ -259,6 +282,7 @@ class ProductProvider extends Component {
       <ProductContext.Provider
         value={{
           ...this.state,
+          setProducts: this.setProducts,
           handleDetail: this.handleDetail,
           addToCart: this.addToCart,
           openModal: this.openModal,

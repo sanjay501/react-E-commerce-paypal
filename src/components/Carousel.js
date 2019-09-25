@@ -27,6 +27,7 @@ export default class Carousel extends Component {
               />
               <li data-target="#carousel-example-2" data-slide-to="1" />
               <li data-target="#carousel-example-2" data-slide-to="2" />
+              <li data-target="#carousel-example-2" data-slide-to="3" />
             </ol>
 
             <div class="carousel-inner" role="listbox" />
@@ -88,13 +89,36 @@ export default class Carousel extends Component {
                 <CarouselButton
                   onClick={() => {
                     console.log("storeproducts", storeProducts);
-                    value.resetProducts(storeProducts, "google");
+                    value.resetProducts(storeProducts, "GOOGLE");
                   }}
                   type="button"
                 >
-                  Explore Google Devices
+                  Explore Google Devices  Sanjsy
                 </CarouselButton>
               </div>
+            </div>
+            <div class="carousel-item">
+              <div class="view">
+                <img
+                  class="d-block w-100"
+                  src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg"
+                  alt="Third slide"
+                />
+                <div class="mask rgba-black-slight" />
+              </div>
+              <div class="carousel-caption">
+                <h3 class="h3-responsive">sanjay</h3>
+                <CarouselButton
+                  onClick={() => {
+                    console.log("storeproducts", storeProducts);
+                    value.resetProducts(storeProducts, "reset");
+                  }}
+                  type="button"
+                >
+                  Reset Products
+                </CarouselButton>
+              </div>
+
             </div>
           </div>
         )}
@@ -107,6 +131,7 @@ background: transparent;
 color: white;
 border: none;
 border: 1px solid transparent;
+cursor
 }
 &:hover{
     border: 1px solid white;

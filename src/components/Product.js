@@ -36,8 +36,8 @@ export default class Product extends Component {
                     {inCart ? (
                       <p className="text-capitalize mb-0">in cart</p>
                     ) : (
-                      <i className="fas fa-cart-plus" />
-                    )}
+                        <i className="fas fa-cart-plus" />
+                      )}
                   </button>
                 </div>
                 {/*Card Footer*/}

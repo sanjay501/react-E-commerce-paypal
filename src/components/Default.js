@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 
 export default class Default extends Component {
+  state = {
+    name: ''
+  }
   render() {
     return (
       <div>
