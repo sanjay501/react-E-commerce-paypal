@@ -93,7 +93,7 @@ export default class Carousel extends Component {
                   }}
                   type="button"
                 >
-                  Explore Google Devices  Sanjsy
+                  Explore Google Devices
                 </CarouselButton>
               </div>
             </div>
