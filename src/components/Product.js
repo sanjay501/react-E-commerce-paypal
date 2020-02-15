@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 
 export default class Product extends Component {
   render() {
-    const { id, title, img, price, inCart } = this.props.product;
+    const { id, title, img, price,volume, inCart } = this.props.product;
     return (
       <ProductWrapper className="col-9 mx-auto col-md-6 col-lg-3 my-3">
         <div className="card">
@@ -31,6 +31,7 @@ export default class Product extends Component {
                     onClick={() => {
                       value.addToCart(id);
                       value.openModal(id);
+                      console.log("open modal ")
                     }}
                   >
                     {inCart ? (
@@ -43,7 +44,7 @@ export default class Product extends Component {
                 {/*Card Footer*/}
                 <div className="card-footer d-flex justify-content-between">
                   <p className="align-self-center mb-0">{title}</p>
-                  <h5 className="text-blue font-italic mb-0">${price}</h5>
+                  <h5 className="text-blue font-italic mb-0">{volume} cf x {price}= NRs {Number.parseFloat(price*volume).toFixed(0)}</h5>
                 </div>
               </div>
             )}
@@ -71,6 +72,7 @@ const ProductWrapper = styled.div`
 .card-footer{
   background:transparent;
   border-top:transparent;
+  flex-direction: column;
   }
   &:hover{
     .card{

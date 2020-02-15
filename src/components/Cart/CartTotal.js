@@ -25,7 +25,7 @@ export default function CartTotal({ value }) {
               </h5>
               <h5>
                 <span className="text-title">tax :</span>
-                <strong>$ {cartTax}</strong>
+                <p>All price are including 13% VAT</p>
               </h5>
               <h5>
                 <span className="text-title">Total :</span>

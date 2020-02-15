@@ -9,7 +9,7 @@ class ProductProvider extends Component {
     products: [],
     detailProduct: detailProduct,
     cart: [],
-    modalOpen: false,
+    modalOpen: true,
     modalProduct: detailProduct,
     cartSubTotal: 0,
     cartTax: 0,
@@ -146,7 +146,8 @@ class ProductProvider extends Component {
     product.inCart = true;
     product.count = 1;
     const price = product.price;
-    product.total = price;
+    const volume = product.volume;
+    product.total = price*volume;
     tempcart.push(product);
     this.setState(
       () => {
@@ -186,7 +187,7 @@ class ProductProvider extends Component {
     const product = tempcart[index];
     product.count++;
     const price = product.price;
-    product.total = price * product.count;
+    product.total = price * product.count*product.volume;
     this.setState(
       () => {
         return {
@@ -210,7 +211,7 @@ class ProductProvider extends Component {
       this.removeItem(id);
     } else {
       const price = product.price;
-      product.total = price * product.count;
+      product.total = price * product.count*product.volume;
       this.setState(
         () => {
           return {

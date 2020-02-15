@@ -80,11 +80,17 @@ export default class Navbar extends Component {
               </ul>
               <Link to="/cart">
                 <ButtonContainer>
+                  <span >
+                    <i class="far fa-user-circle"></i>
+                  </span>
+                  
+                </ButtonContainer>
+              </Link>
+              <Link to="/cart">
+                <ButtonContainer>
                   <span className="mr-2">
                     <i className="fas fa-cart-plus" />
                   </span>
-                  My Cart
-
                   <span className="cartcounter">{value.cartCount}</span>
                 </ButtonContainer>
               </Link>

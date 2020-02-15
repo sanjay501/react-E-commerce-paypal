@@ -3,7 +3,7 @@ import { ButtonContainer } from "../Button";
 import PayPalButton from "./PayPalButton";
 
 export default function CartItem({ product, value }) {
-  const { id, title, img, price, total, count } = product;
+  const { id, title, img, price,volume, total, count } = product;
   const { increment, decrement, removeItem } = value;
   return (
     <div className="row my-4 text-center text-capitalixe">
@@ -19,9 +19,16 @@ export default function CartItem({ product, value }) {
         <span className="d-lg-none">product :</span>
         {title}
       </div>
-      <div className="col-10 mx-auto col-lg-2 text-center ">
-        <span className="d-lg-none">price :</span>${price}
+      <div className="col-10 mx-auto col-lg-1 text-center ">
+        <span className="d-lg-none">price/cf:</span>NRs {price}
       </div>
+      <div className="col-10 mx-auto col-lg-1 text-center ">
+        <span className="d-lg-none">volume(cf):</span>{volume} cf
+      </div>
+      <div className="col-10 mx-auto col-lg-2 text-center ">
+        <span className="d-lg-none">price per piece:</span>{volume*price} cf
+      </div>
+
       <div className="col-10 mx-auto col-lg-2 my-2 my-lg-0 ">
         <div className="d-flex justify-content-center">
           <div>
@@ -46,7 +53,14 @@ export default function CartItem({ product, value }) {
           </div>
         </div>
       </div>
-      <div className="col-10 mx-auto col-lg-2  text-center ">
+      
+      <div className="col-10 mx-auto col-lg-1 text-center ">
+        <span className="d-lg-none">
+          <strong>item total : </strong>
+        </span>
+        <strong>${total}</strong>
+      </div>
+      <div className="col-10 mx-auto col-lg-1  text-center ">
         <div className="cart-icon">
           <i
             onClick={() => {
@@ -55,12 +69,6 @@ export default function CartItem({ product, value }) {
             className="fas fa-trash"
           />
         </div>
-      </div>
-      <div className="col-10 mx-auto col-lg-2 text-center ">
-        <span className="d-lg-none">
-          <strong>item total : </strong>
-        </span>
-        <strong>${total}</strong>
       </div>
     </div>
   );
