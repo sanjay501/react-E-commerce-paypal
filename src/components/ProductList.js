@@ -12,7 +12,7 @@ export default class ProductList extends Component {
         <div className="py-5">
           <div className="container">
             <Carousel />
-            <Title name="Sanjay " title=" Prajapati" />
+            <Title name="Ganesh Kastha Udhyog, " title=" Bhaktapur Branch" />
             <div className="row">
               <ProductConsumer>
                 {value => {

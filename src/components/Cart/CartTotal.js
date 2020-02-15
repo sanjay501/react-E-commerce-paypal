@@ -27,10 +27,7 @@ export default function CartTotal({ value }) {
                 <span className="text-title">tax :</span>
                 <p>All price are including 13% VAT</p>
               </h5>
-              <h5>
-                <span className="text-title">Total :</span>
-                <strong>$ {cartTotal}</strong>
-              </h5>
+              
               <PayPalButton
                 total={cartTotal}
                 clearCart={clearCart}

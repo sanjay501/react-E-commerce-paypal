@@ -14,6 +14,7 @@ export default class Details extends Component {
             img,
             info,
             price,
+            volume,
             title,
             inCart
           } = value.detailProduct;
@@ -42,7 +43,7 @@ export default class Details extends Component {
                       <strong>
                         {" "}
                         price : <span>$</span>
-                        {price}
+                        {price*volume}
                       </strong>
                     </h4>
                     <p className="text-capitalize font-weight-bold mt-3 mb-0">

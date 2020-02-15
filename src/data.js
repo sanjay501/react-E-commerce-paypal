@@ -627,14 +627,18 @@ total: 0
 ];
 
 export const detailProduct = {
-  id: 1,
-  title: "Google Pixel - Black",
-  img: "img/product-1.png",
-  price: 10,
-  company: "google",
-  info:
-    "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
-  inCart: false,
-  count: 0,
-  total: 0
+  
+    id: 1,
+    title: "नेपाली अग्राठ चौकोस मुख्य ढोका ठेला सहित र वेन्तिलसन सहित (4x8) ",
+    dimension:"2-11-0",
+    volume:2.9167,
+    img: "img/product1.HEIC",
+    price: 6000,
+    type: "saal",
+    info:"ABOUT SAL WOOD/nSAL wood is one of the hardwood timbers. It comes with tough and coarse grain. It is very light in appearance and turns into a dark brown colour with prolonged exposure to sunlight."
+    ,
+    inCart: false,
+    count: 0,
+    total: 0
+  
 };
